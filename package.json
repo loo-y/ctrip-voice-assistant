@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build": "tsc && node scripts/build.js",
+    "build": "node scripts/build.js",
     "watch": "tsc --watch",
     "format": "prettier --write ."
   },
@@ -22,6 +22,7 @@
     "react-dom": "^18.3.1",
     "typescript": "^5.5.3",
     "zustand": "^4.5.4",
-    "fs-extra": "^11.2.0"
+    "fs-extra": "^11.2.0",
+    "esbuild": "^0.23.0"
   }
 }
