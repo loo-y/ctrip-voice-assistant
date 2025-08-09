@@ -1,29 +1,27 @@
 {
-	"name": "ctrip-voice-assistant",
-	"version": "1.0.0",
-	"description": "携程语音助手 Chrome 插件",
-	"main": "index.js",
-	"scripts": {
-		"build": "tsc",
-		"format": "prettier --write ."
-	},
-	"keywords": [
-		"chrome-extension",
-		"react",
-		"typescript",
-		"voice-assistant"
-	],
-	"author": "Your Name",
-	"license": "MIT",
-	"devDependencies": {
-		"@types/chrome": "^0.0.270",
-		"@types/node": "^20.14.10",
-		"@types/react": "^18.3.3",
-		"@types/react-dom": "^18.3.0",
-		"prettier": "^3.3.2",
-		"react": "^18.3.1",
-		"react-dom": "^18.3.1",
-		"typescript": "^5.5.3",
-		"zustand": "^4.5.4"
-	}
+  "name": "ctrip-voice-assistant",
+  "version": "1.0.0",
+  "description": "携程语音助手 Chrome 插件",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc && node scripts/build.js",
+    "watch": "tsc --watch",
+    "format": "prettier --write ."
+  },
+  "keywords": ["chrome-extension", "react", "typescript", "voice-assistant"],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/chrome": "^0.0.270",
+    "@types/node": "^20.14.10",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "prettier": "^3.3.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.5.3",
+    "zustand": "^4.5.4",
+    "fs-extra": "^11.2.0"
+  }
 }
