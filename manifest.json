@@ -1,0 +1,27 @@
+// 携程语音助手 Chrome 插件
+{
+	"manifest_version": 3,
+	"name": "携程语音助手",
+	"version": "1.0.0",
+	"description": "在携程旅行网站上提供语音助手功能",
+	"permissions": ["activeTab", "scripting"],
+	"host_permissions": ["https://vacations.ctrip.com/*"],
+	"content_scripts": [
+		{
+			"matches": ["https://vacations.ctrip.com/*"],
+			"js": ["content/index.js"],
+			"css": ["content/index.css"]
+		}
+	],
+	"web_accessible_resources": [
+		{
+			"resources": ["assets/*"],
+			"matches": ["https://vacations.ctrip.com/*"]
+		}
+	],
+	"icons": {
+		"16": "assets/icon16.png",
+		"48": "assets/icon48.png",
+		"128": "assets/icon128.png"
+	}
+}
