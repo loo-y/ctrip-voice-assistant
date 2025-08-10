@@ -34,7 +34,7 @@ export const useVoiceAssistantStore = create<VoiceAssistantState>((set) => ({
 				set({ isListening: true });
 			})
 			.catch((err) => {
-				console.error('无法访问麦克风:', err);
+				console.warn('无法访问麦克风:', err);
 			});
 	},
 	stopListening: () => {
