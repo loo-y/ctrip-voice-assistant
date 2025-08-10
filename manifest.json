@@ -16,7 +16,7 @@
     {
       "matches": ["https://vacations.ctrip.com/*"],
       "js": ["content/index.js"],
-      "css": ["content/index.css"]
+      "css": ["style/tailwind.output.css"]
     }
   ],
   "web_accessible_resources": [

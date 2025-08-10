@@ -5,9 +5,10 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build": "node scripts/build.js",
+    "build": "npm run tailwind && node scripts/build.js",
     "watch": "tsc --watch",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "tailwind": "npx @tailwindcss/cli -i ./src/style/tailwind.css -o ./src/style/tailwind.output.css"
   },
   "keywords": [
     "chrome-extension",
@@ -22,15 +23,19 @@
     "@types/node": "^20.14.10",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
+    "autoprefixer": "^10.4.21",
     "esbuild": "^0.23.0",
     "fs-extra": "^11.2.0",
+    "postcss": "^8.5.6",
     "prettier": "^3.3.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "tailwindcss": "^4.1.11",
     "typescript": "^5.5.3",
     "zustand": "^4.5.4"
   },
   "dependencies": {
-    "@elevenlabs/react": "^0.5.0"
+    "@elevenlabs/react": "^0.5.0",
+    "@tailwindcss/cli": "^4.1.11"
   }
 }

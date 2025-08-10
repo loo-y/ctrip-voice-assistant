@@ -20,7 +20,7 @@ fs.copySync('src/options/options.html', 'dist/options/options.html');
 fs.copySync('src/options/options.js', 'dist/options/options.js');
 
 // 复制content目录中的CSS文件
-fs.copySync('src/content/index.css', 'dist/content/index.css');
+fs.copySync('src/style/tailwind.output.css', 'dist/style/tailwind.output.css');
 
 // 使用esbuild打包content脚本
 console.log('Bundling content script...');

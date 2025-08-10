@@ -26,20 +26,21 @@ export const VoiceAssistant: React.FC = () => {
 		}
 	};
 
-	return (
-		<div className="voice-assistant-widget">
-			<button
-				className={`voice-assistant-button ${isListening ? 'listening' : ''}`}
-				onClick={handleToggle}
-			>
-				🎤
-			</button>
-			<div className="flex flex-col items-center">
-				<p>Status: {conversation.status}</p>
-				<p>Agent is {conversation.isSpeaking ? 'speaking' : 'listening'}</p>
-			</div>
-		</div>
-	);
+	  return (
+    <div className="fixed top-1/2 right-0 transform -translate-y-1/2 flex flex-col items-center bg-white shadow-lg border-l border-gray-200 p-4 rounded-l-lg">
+      <button
+        className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ${isListening ? 'animate-pulse' : ''}`}
+        onClick={handleToggle}
+      >
+        🎤
+      </button>
+      <div className="flex flex-col items-center mt-2">
+        <p>Status: {conversation.status}</p>
+		{conversation.status === 'connected' ? <p>Agent is {conversation.isSpeaking ? 'speaking' : 'listening'}</p> : null}
+        
+      </div>
+    </div>
+  );
 };
 
 const getAgentInfoFromLocalStorage = () => {
