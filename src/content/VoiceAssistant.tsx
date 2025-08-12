@@ -1,18 +1,22 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { useVoiceAssistantStore } from './store';
 import { useConversation } from '@elevenlabs/react';
+import { getInfoFromUrl } from './utils';
+import { fetchProductInfo } from './utils/fetches';
 
 
 export const VoiceAssistant: React.FC = () => {
 	const { isListening, startElevenLabsConversation, endElevenLabsConversation } =
 		useVoiceAssistantStore();
+	const [productId, setProductId] = useState<string | null>(null);
+	const [productInfo, setProductInfo] = useState<any>(null);
 
 	const conversation = useConversation({
 		onConnect: () => console.log('Connected'),
 		onDisconnect: () => console.log('Disconnected'),
-		onMessage: (message) => console.log('Message:', message),
-		onError: (error) => console.error('Error:', error),
-		onDebug: (debug) => console.log('Debug:', debug),
+		onMessage: (message: any) => console.log('Message:', message),
+		onError: (error: any) => console.error('Error:', error),
+		onDebug: (debug: any) => console.log('Debug:', debug),
 	});
 	const handleToggle = async () => {
 		if (isListening) {
@@ -26,7 +30,27 @@ export const VoiceAssistant: React.FC = () => {
 		}
 	};
 
-	  return (
+	useEffect(()=>{
+		const pageUrl = window.location.href;
+		const {productId} = getInfoFromUrl(pageUrl);
+		console.log(`pageUrl: ${pageUrl},productId: ${productId}`);
+		if(productId) {
+			setProductId(productId);
+		}
+	}, [])
+
+	useEffect(()=>{
+		if(productId) {
+			const getProductInfo = async () => {
+				const productInfo = await fetchProductInfo(productId);
+				console.log(productInfo);
+				setProductInfo(productInfo);
+			}
+			getProductInfo();
+		}
+	}, [productId])
+
+	return (
     <div className="fixed top-1/2 right-0 transform -translate-y-1/2 flex flex-col items-center bg-white shadow-lg border-l border-gray-200 p-4 rounded-l-lg">
       <button
         className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ${isListening ? 'animate-pulse' : ''}`}
